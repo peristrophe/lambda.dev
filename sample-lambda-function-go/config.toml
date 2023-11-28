@@ -1,0 +1,38 @@
+parameter_store_name = "/name/of/encryption-key"
+connection_name = "glue-connection-name"
+
+[Product]
+database = "foo"
+table = "products"
+migration_columns = [
+    "Id",
+    "Name",
+    "Price",
+    "Unit",
+]
+
+[Customer]
+database = "foo"
+table = "customers"
+migration_columns = [
+    "Id",
+    "FirstName",
+    "LastName",
+    "Address",
+    "Gender",
+    "Birthday",
+]
+encryption_columns = [
+    "FirstName",
+    "LastName",
+    "Address",
+]
+
+[Store]
+database = "bar"
+table = "stores"
+migration_columns = [
+    "Id",
+    "Name",
+    "Address",
+]
