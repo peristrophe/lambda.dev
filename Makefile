@@ -2,9 +2,6 @@ AWS_ACCOUNT_ID := xxxxxxxxxxxx
 AWS_REGION := ap-northeast-1
 AWS_ECR_REGISTRY := $(AWS_ACCOUNT_ID).dkr.ecr.$(AWS_REGION).amazonaws.com
 
-AWS_ACCESS_KEY_ID := XXXXXXXXXXXXXXXXXXXX
-AWS_SECRET_ACCESS_KEY := xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-
 MFA_DEVICE_ARN := arn:aws:iam::$(AWS_ACCOUNT_ID):mfa/xxxxxxx
 
 
