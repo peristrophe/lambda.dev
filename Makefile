@@ -27,7 +27,7 @@ mfa-%:
 		amazon/aws-cli:latest sts get-session-token \
 			--serial-number $(MFA_DEVICE_ARN) \
 			--token-code ${@:mfa-%=%} | tee ./credentials.json
-	find . -type d -name ".cache" -maxdepth 2 -mindepth 1 -exec cp credentials.json '{}' ';'
+	find . -type d -name ".cache" -maxdepth 2 -mindepth 2 -exec cp credentials.json '{}' ';'
 
 clean-pushed:
 	-docker rmi -f $(shell docker images -qf "reference=$(AWS_ECR_REGISTRY)/*:*")
