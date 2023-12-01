@@ -9,9 +9,9 @@ MFA_DEVICE_ARN := arn:aws:iam::$(AWS_ACCOUNT_ID):mfa/xxxxxxx
 
 
 define ImportCredentials
-$(eval export AWS_ACCESS_KEY_ID=$(shell jq -r '.Credentials.AccessKeyId' .cache/credentials.json 2>/dev/null))
-$(eval export AWS_SECRET_ACCESS_KEY=$(shell jq -r '.Credentials.SecretAccessKey' .cache/credentials.json 2>/dev/null))
-$(eval export AWS_SESSION_TOKEN=$(shell jq -r '.Credentials.SessionToken' .cache/credentials.json 2>/dev/null))
+$(eval export AWS_ACCESS_KEY_ID=$(shell jq -r '.Credentials.AccessKeyId' ./credentials.json 2>/dev/null))
+$(eval export AWS_SECRET_ACCESS_KEY=$(shell jq -r '.Credentials.SecretAccessKey' ./credentials.json 2>/dev/null))
+$(eval export AWS_SESSION_TOKEN=$(shell jq -r '.Credentials.SessionToken' ./credentials.json 2>/dev/null))
 $(eval export AWS_DEFAULT_REGION=ap-northeast-1)
 $(eval export AWS_DEFAULT_OUTPUT=json)
 endef
