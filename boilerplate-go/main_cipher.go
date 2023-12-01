@@ -80,7 +80,7 @@ func Encrypt(plainText string, dataKey string) (string, error) {
 
 	data := []byte(plainText)
 
-	iv := GetFixedIV()
+	iv := GetRandomIV()
 	block, err := aes.NewCipher(key)
 	if err != nil {
 		return "", err
