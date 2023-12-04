@@ -44,12 +44,12 @@ func GetDataKey(parameterStoreName string) (string, error) {
 	return base64.StdEncoding.EncodeToString(response2.Plaintext), nil
 }
 
-func GetFixedIV() []byte {
+func GetFixedIV() ([]byte, error) {
 	iv, err := base64.StdEncoding.DecodeString("UMtpfOefMSA8HArD78I2YA==")
 	if err != nil {
-		panic(err)
+		nil, err
 	}
-	return iv
+	return iv, nil
 }
 
 func GetRandomIV() ([]byte, error) {
@@ -80,7 +80,11 @@ func Encrypt(plainText string, dataKey string) (string, error) {
 
 	data := []byte(plainText)
 
-	iv := GetRandomIV()
+	iv, err := GetRandomIV()
+	if err != nil {
+		return "", err
+	}
+
 	block, err := aes.NewCipher(key)
 	if err != nil {
 		return "", err
